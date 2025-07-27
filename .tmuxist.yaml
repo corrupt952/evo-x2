@@ -1,0 +1,8 @@
+name: "evo-x2"
+root: "."
+attach: true
+
+windows:
+  - panes:
+      - command: "claude"
+  - panes:
