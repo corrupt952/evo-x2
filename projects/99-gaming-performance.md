@@ -1,148 +1,148 @@
-# 【番外編】ゲーミング性能検証（Steam/ネイティブゲーム）
+# [Extra] Gaming Performance Verification (Steam/Native Games)
 
-## 概要
-EVO-X2の40CU RDNA 3.5 iGPUを活用したゲーミング性能を検証し、AI開発の合間のリフレッシュタイムを充実させる。
+## Overview
+Verify gaming performance utilizing EVO-X2's 40CU RDNA 3.5 iGPU to enhance refresh time between AI development.
 
-## 目的
-- 統合GPUでのAAA/インディーゲームの動作確認
-- AI処理とゲーミングの両立可能性検証
-- 仕事の合間の適切な息抜き環境構築
+## Objectives
+- Confirm AAA/indie game operation with integrated GPU
+- Verify compatibility of AI processing and gaming
+- Build appropriate break environment during work
 
-## システムスペック（ゲーミング視点）
-- **GPU**: 40CU RDNA 3.5 (約RTX 4060相当?)
-- **メモリ**: 96GB統合メモリ（VRAM共有）
-- **ストレージ**: NVMe SSD推奨
+## System Specs (Gaming Perspective)
+- **GPU**: 40CU RDNA 3.5 (approx. RTX 4060 equivalent?)
+- **Memory**: 96GB unified memory (VRAM shared)
+- **Storage**: NVMe SSD recommended
 - **OS**: Windows 11 / Linux (Proton)
 
-## 検証カテゴリ
+## Verification Categories
 
-### 1. Steamゲーム
-#### AAA タイトル
-| ゲーム | 設定 | 目標FPS | 備考 |
-|--------|------|---------|------|
-| Cyberpunk 2077 | 1080p Medium | 60fps | FSR3有効 |
+### 1. Steam Games
+#### AAA Titles
+| Game | Settings | Target FPS | Notes |
+|------|----------|------------|-------|
+| Cyberpunk 2077 | 1080p Medium | 60fps | FSR3 enabled |
 | Baldur's Gate 3 | 1080p High | 60fps | - |
-| Hogwarts Legacy | 1080p Medium | 45fps | レイトレなし |
+| Hogwarts Legacy | 1080p Medium | 45fps | No ray tracing |
 
-#### インディー/軽量ゲーム
+#### Indie/Lightweight Games
 - Hades II
 - Stardew Valley  
 - Factorio
 - RimWorld
 - Vampire Survivors
 
-### 2. エミュレーション
+### 2. Emulation
 - **PS3**: RPCS3
-- **Switch**: Ryujinx/Yuzu後継
-- **レトロ**: RetroArch
+- **Switch**: Ryujinx/Yuzu successors
+- **Retro**: RetroArch
 
-### 3. クラウドゲーミング
+### 3. Cloud Gaming
 - Xbox Game Pass
 - GeForce NOW
-- ローカルストリーミング（Steamlink）
+- Local streaming (Steam Link)
 
-## ゲーミング中のAI活用
+## AI Utilization During Gaming
 
-### 1. AIアシスタント統合
+### 1. AI Assistant Integration
 ```python
-# ゲーム中の音声コマンド
+# Voice commands during gaming
 async def gaming_assistant():
     commands = {
-        "攻略教えて": search_game_guide,
-        "配信設定": setup_streaming,
-        "パフォーマンス": show_fps_stats,
-        "スクショ分析": analyze_screenshot
+        "guide me": search_game_guide,
+        "streaming setup": setup_streaming,
+        "performance": show_fps_stats,
+        "analyze screenshot": analyze_screenshot
     }
 ```
 
-### 2. 自動クリップ生成
-- プレイハイライトの自動検出
-- キルシーンの切り抜き
-- 面白い瞬間のGIF化
+### 2. Automatic Clip Generation
+- Automatic detection of play highlights
+- Kill scene extraction
+- GIF creation of funny moments
 
-### 3. リアルタイム翻訳
-- 海外ゲームの字幕翻訳
-- ボイスチャットの同時通訳
-- modの説明文翻訳
+### 3. Real-time Translation
+- Foreign game subtitle translation
+- Voice chat simultaneous interpretation
+- Mod description translation
 
-## パフォーマンス最適化
+## Performance Optimization
 
-### 1. メモリ割り当て
+### 1. Memory Allocation
 ```yaml
-通常時:
+Normal mode:
   LLM: 60GB
-  ゲーム: 16GB
-  システム: 20GB
+  Game: 16GB
+  System: 20GB
 
-ゲーミングモード:
-  LLM: 0-30GB (バックグラウンド)
-  ゲーム: 32GB
-  システム: 34GB
+Gaming mode:
+  LLM: 0-30GB (background)
+  Game: 32GB
+  System: 34GB
 ```
 
-### 2. 電力プロファイル
-- **バランス**: AI処理優先
-- **ゲーミング**: GPU優先
-- **ハイブリッド**: 動的切り替え
+### 2. Power Profiles
+- **Balanced**: AI processing priority
+- **Gaming**: GPU priority
+- **Hybrid**: Dynamic switching
 
-### 3. 冷却戦略
-- ゲーミング時のファンカーブ
-- サーマルパッド最適化
-- 外部クーラー検討
+### 3. Cooling Strategy
+- Fan curves for gaming
+- Thermal pad optimization
+- External cooler consideration
 
-## 実用シナリオ
+## Practical Scenarios
 
-### 1. 仕事の合間に
-- ポモドーロテクニック（25分作業→5分ゲーム）
-- ビルド待ち時間の有効活用
-- 昼休みのリフレッシュ
+### 1. During Work Breaks
+- Pomodoro technique (25min work → 5min game)
+- Effective use of build wait time
+- Lunch break refresh
 
-### 2. AI開発との相乗効果
-- ゲームAIの動作研究
-- 強化学習の実験場
-- プロシージャル生成の参考
+### 2. Synergy with AI Development
+- Game AI behavior research
+- Reinforcement learning experimental ground
+- Reference for procedural generation
 
-### 3. 配信・コンテンツ作成
-- LLMによる実況補助
-- 自動字幕生成
-- ハイライト動画編集
+### 3. Streaming/Content Creation
+- LLM-assisted live commentary
+- Automatic subtitle generation
+- Highlight video editing
 
-## ベンチマーク項目
+## Benchmark Items
 
-### 基本性能
+### Basic Performance
 - [ ] 3DMark Time Spy
 - [ ] Unigine Heaven
-- [ ] 各ゲームのビルトインベンチ
+- [ ] Built-in benchmarks for each game
 
-### 実ゲーム性能
-- [ ] 平均FPS / 1% Low
-- [ ] フレームタイム分析
-- [ ] 入力遅延測定
+### Real Game Performance
+- [ ] Average FPS / 1% Low
+- [ ] Frame time analysis
+- [ ] Input lag measurement
 
-### AI併用時
-- [ ] バックグラウンドLLM実行時のFPS
-- [ ] ゲーム中の音声認識レイテンシ
-- [ ] メモリ競合の影響
+### During AI Usage
+- [ ] FPS with background LLM execution
+- [ ] Voice recognition latency during gaming
+- [ ] Memory contention impact
 
-## おすすめゲームリスト
+## Recommended Game List
 
-### ストレス解消系
-1. **DOOM Eternal**: 爽快FPS
-2. **Hades**: ローグライク
-3. **Beat Saber**: VR音ゲー
+### Stress Relief
+1. **DOOM Eternal**: Exhilarating FPS
+2. **Hades**: Roguelike
+3. **Beat Saber**: VR rhythm game
 
-### じっくり系
-1. **Civilization VI**: ターン制ストラテジー
-2. **Cities: Skylines**: 都市建設
-3. **Two Point Hospital**: 経営シミュ
+### Relaxing
+1. **Civilization VI**: Turn-based strategy
+2. **Cities: Skylines**: City building
+3. **Two Point Hospital**: Management sim
 
-### 協力プレイ
-1. **It Takes Two**: 2人協力
-2. **Overcooked**: パーティーゲーム
-3. **Portal 2**: パズル協力
+### Cooperative Play
+1. **It Takes Two**: 2-player co-op
+2. **Overcooked**: Party game
+3. **Portal 2**: Puzzle co-op
 
-## 期待される成果
-- 1080p 60fpsでの快適プレイ
-- AI処理との両立
-- 効率的な気分転換
-- 新たなAI活用アイデアの創出
+## Expected Results
+- Comfortable play at 1080p 60fps
+- Compatibility with AI processing
+- Efficient mood refreshment
+- Creation of new AI utilization ideas
